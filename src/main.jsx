@@ -16,7 +16,7 @@ const Main = () => {
 };
 
 // Fix: prevent double root creation during hot reload
-const container = document.getElementById('root');
+const container = document.getElementById('root'); 
 if (!container._reactRoot) {
     container._reactRoot = ReactDOM.createRoot(container);
 }
