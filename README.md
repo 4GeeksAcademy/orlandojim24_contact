@@ -9,7 +9,8 @@ Used by 4Geeks.com and 4Geeks Academy students, this template helps to bootstrap
 
 1. Install the node package dependencies by typing: `$ npm install`
 
-2. Create a .env file by typing `$ cp .env.example .env`
+2. Create a .env file by typing `$ 
+`
 
 3. Start coding! and the vite dev server with live reload by typing: `$ npm run start`
 

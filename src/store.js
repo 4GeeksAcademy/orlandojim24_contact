@@ -1,32 +1,45 @@
-export const initialStore=()=>{
-  return{
-    message: null,
-    todos: [
-      {
-        id: 1,
-        title: "Make the bed",
-        background: null,
-      },
-      {
-        id: 2,
-        title: "Do my homework",
-        background: null,
-      }
-    ]
+export const initialStore = () => {
+  return {
+    contactsY: [],
+    agenda: ""
   }
 }
 
 export default function storeReducer(store, action = {}) {
-  switch(action.type){
-    case 'add_task':
+  const API_URL_BASE = 'https://playground.4geeks.com/contact';
+  switch (action.type) {
 
-      const { id,  color } = action.payload
+    // Method created to fetch contacts (method 1)
+    case 'update_contacts':
+      const { contacts } = action.payload
+      const { slug } = action.payload
 
+      // // Logging to console for debugging:
+      // console.log("Print action.payload:");
+      // console.log(action.payload);
+      // console.log("Print contacts:");
+      // console.log(contacts);
+      // console.log("Print slug:");
+      // console.log(slug);
+      // console.log("Print ...store:");
+
+      // if (Array.isArray(store)) {
+      //   console.log([...store]); 
+      // } else {
+      //   console.log("store is not an array:", store); 
+      // }
+      return { ...store, contactsY: [...contacts], agenda: slug }
+
+    // Method created to fetch contacts (method 2)
+    case 'set_contacts':
+      const { contactsX } = action.payload
       return {
         ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
-      };
+        contactsY: contactsX
+      }
+
     default:
       throw Error('Unknown action.');
-  }    
+  }
+
 }
